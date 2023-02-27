@@ -29,8 +29,6 @@ def is_list_equal(pc_list, user_list):
         print('sorry wrong!!, Please try again')
         return False
     else:
-
-
         return True
 def exit_Q (difficulty):
     ask_user = input("""Did you want to play the game again?
@@ -50,7 +48,7 @@ def play(difficulty):
         return False
     else:
         print('Congratulations!!')
-        exit_Q(difficulty)
         add_score(difficulty)
+        exit_Q(difficulty)
         return True
 
