@@ -32,17 +32,25 @@ def is_list_equal(pc_list, user_list):
 
 
         return True
-
+def exit_Q (difficulty):
+    ask_user = input("""Did you want to play the game again?
+            if yes, please enter Y, otherwise press any key to exit.
+             """)
+    if (ask_user == "Y" or ask_user == "y"):
+        print("welcome again:)")
+        play(difficulty)
+    else:
+        print("Goodbye!")
 def play(difficulty):
 
     if is_list_equal(generate_sequence(difficulty),get_list_from_user(difficulty))==False:
         get_list_from_user(difficulty)
-        play(difficulty)
         print('sorry wrong!!, Please try again')
+        exit_Q(difficulty)
         return False
     else:
         print('Congratulations!!')
+        exit_Q(difficulty)
         add_score(difficulty)
-        play(difficulty)
         return True
 
