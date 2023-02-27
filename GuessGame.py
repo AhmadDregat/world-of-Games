@@ -1,5 +1,8 @@
 from random import randrange
 
+from Score import add_score
+
+
 def generate_number(Difficulty):
     x=randrange(1,Difficulty)
     print (x)
@@ -18,14 +21,15 @@ def compare_results(secret_number, guess_number):
     else:
         return False
 
-def play(Difficulty):
-    pc_number = generate_number(Difficulty)
+def play(difficulty):
+    pc_number = generate_number(difficulty)
     user_guess = get_guess_from_user()
     if compare_results(pc_number,user_guess) == True:
+        add_score(difficulty)
         print("Congratulations!!!")
         return True
     else:
         print("Sorry, Please try again")
-        play(Difficulty)
+        play(difficulty)
         return False
 

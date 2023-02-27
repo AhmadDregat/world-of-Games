@@ -3,7 +3,7 @@ import random
 import subprocess
 import time
 from Utils import Screen_cleaner
-
+from Score import add_score
 def generate_sequence(difficulty):
     list_of_numbers = random.sample(range(1, 101), difficulty)
     print (list_of_numbers)
@@ -29,7 +29,8 @@ def is_list_equal(pc_list, user_list):
         print('sorry wrong!!, Please try again')
         return False
     else:
-        print('Congratulations!!')
+
+
         return True
 
 def play(difficulty):
@@ -37,6 +38,11 @@ def play(difficulty):
     if is_list_equal(generate_sequence(difficulty),get_list_from_user(difficulty))==False:
         get_list_from_user(difficulty)
         play(difficulty)
+        print('sorry wrong!!, Please try again')
         return False
     else:
+        print('Congratulations!!')
+        add_score(difficulty)
+        play(difficulty)
         return True
+
