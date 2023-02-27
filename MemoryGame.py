@@ -2,13 +2,12 @@ import os
 import random
 import subprocess
 import time
-
+from Utils import Screen_cleaner
 
 def generate_sequence(difficulty):
     list_of_numbers = random.sample(range(1, 101), difficulty)
     print (list_of_numbers)
-    time.sleep(0.7)
-    os.system('clear')
+    Screen_cleaner(0.7)
     return list_of_numbers
 def get_list_from_user(difficulty):
     print ("enter the numbers sequence ")
@@ -41,6 +40,3 @@ def play(difficulty):
         return False
     else:
         return True
-
-
-
